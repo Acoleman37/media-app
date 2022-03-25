@@ -26,10 +26,10 @@ const userSchema = new Schema(
                 ref: 'Game'
             }
         ],
-        streaming: [
+        movies: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Steaming'
+                ref: 'Movies'
             }
         ]
     },
