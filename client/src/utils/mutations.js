@@ -32,3 +32,38 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const SAVE_MOVIE = gql`
+  mutation saveMovie($movieId: ID!) {
+    saveMovie(savedMovie: $movieId) {
+      _id
+      username
+      email
+      savedMovies  {
+        movieId
+        title
+        genres
+        description
+        image
+      }
+    }
+  }
+`;
+
+export const REMOVE_MOVIE = gql`
+  mutation removeMovie($movieId: ID!) {
+    removeMovie(movieId: $movieId) {
+      _id
+      username
+      email
+      savedMovies {
+        movieId
+        authors
+        description
+        title
+        image
+        link
+      }
+    }
+  }
+`;
