@@ -15,6 +15,13 @@ const typeDefs = gql`
         me: User
     }
 
+    type Movie {
+        movieTitle: String!
+        genre: String
+        description: String
+        image: String
+    }
+    
     type Game {
         gameTitle: String!
         genre: String
