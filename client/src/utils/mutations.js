@@ -84,3 +84,21 @@ export const SAVE_GAME = gql`
     }
   }
 `
+
+// removeGame as resolver
+export const REMOVE_GAME = gql`
+  mutation removeGame($gameId: ID!) {
+    removeGame(savedGames: $gameId) {
+      _id
+      username
+      email
+      savedGames {
+        _id
+        title
+        genre
+        description
+        image
+      }
+    }
+  }
+`
