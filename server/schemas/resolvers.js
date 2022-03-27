@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Game } = require("../models");
 const { signToken } = require("../utils/auth");
+
 
 const resolvers = {
     Query: {
@@ -8,12 +9,14 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
-                .populate('savedMovies')
+                .populate('games')
+                .populate('streaming')
 
                 return userData;
             }
 
             throw new AuthenticationError('Not logged in');
+
         },
 
     },
@@ -29,7 +32,9 @@ const resolvers = {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
+
             if (!user) {
+
                 throw new AuthenticationError('Incorrect credentials');
             }
 
@@ -40,8 +45,10 @@ const resolvers = {
             }
 
             const token = signToken(user);
+
             return { token, user };
         },
+
     }
 }
 
