@@ -2,7 +2,6 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
-
     type User {
     _id: _id
     username: String
@@ -28,6 +27,13 @@ const typeDefs = gql`
         genre: String
         achievements: String
         progress: String
+    }
+
+    type Movie {
+        title: String!
+        genre: [String]
+        description: String!
+        image: String
     }
 
     type Auth {
