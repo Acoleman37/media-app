@@ -74,11 +74,12 @@ export const SAVE_GAME = gql`
       _id
       username
       email
-      savedMovies {
+      savedGames {
         _id
-        title
+        gameTitle
         genre
-        description
+        achievements
+        progress
         image
       }
     }
@@ -94,9 +95,10 @@ export const REMOVE_GAME = gql`
       email
       savedGames {
         _id
-        title
+        gameTitle
         genre
-        description
+        achievements
+        progress
         image
       }
     }
