@@ -100,7 +100,22 @@ const resolvers = {
             throw new AuthenticationError("You need to be logged in!");
         },
         // Takes in $gameId
-    
+        removeGame: async (parents, args, context) => {
+
+            if (context.user) {
+                console.log(args);
+                const updatedGameList = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { saveGames: { _id: args.SOMETHING._id } } },
+                    { new: true }
+                );
+
+                console.log("updated Game List: " + updatedGameList);
+
+                return updatedGameList;
+            }
+
+            throw new AuthenticationError("You need to be logged in!");
         }
     }
 }
