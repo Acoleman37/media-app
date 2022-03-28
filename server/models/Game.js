@@ -14,6 +14,9 @@ const gameSchema = new Schema(
         },
         progress: {
             type: String
+        },
+        image: {
+            type: String
         }
     }
 );

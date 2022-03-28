@@ -48,7 +48,75 @@ const resolvers = {
 
             return { token, user };
         },
+        // Takes in $movieId
+        saveMovie: async (parent, args, context) => {
 
+            if (context.user) {
+                console.log(args);
+                const updatedMovieList = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { saveMovies: { _id: args.SOMETHING._id } } },
+                    { new: true }
+                );
+
+                console.log("updated Movie List: " + updatedMovieList);
+
+                return updatedMovieList;
+            }
+
+            throw new AuthenticationError("You need to be logged in!");
+        },
+        // Takes in $movieId
+        removeMovie: async (parent, args, context) => {
+            if (context.user) {
+                console.log(args);
+                const updatedMovieList = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { saveMovies: { _id: args.SOMETHING._id } } },
+                    { new: true }
+                );
+
+                console.log("updated Movie List: " + updatedMovieList);
+
+                return updatedMovieList;
+            }
+        },
+        // Takes in $gameId
+        saveGame: async (parents, args, context) => {
+
+            if (context.user) {
+                console.log(args);
+                const updatedGameList = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { saveGames: { _id: args.SOMETHING._id } } },
+                    { new: true }
+                );
+
+                console.log("updated Game List: " + updatedGameList);
+
+                return updatedGameList;
+            }
+
+            throw new AuthenticationError("You need to be logged in!");
+        },
+        // Takes in $gameId
+        removeGame: async (parents, args, context) => {
+
+            if (context.user) {
+                console.log(args);
+                const updatedGameList = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { saveGames: { _id: args.SOMETHING._id } } },
+                    { new: true }
+                );
+
+                console.log("updated Game List: " + updatedGameList);
+
+                return updatedGameList;
+            }
+
+            throw new AuthenticationError("You need to be logged in!");
+        }
     }
 }
 
