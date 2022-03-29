@@ -1,6 +1,6 @@
 let db;
 
-const request = indexedDb.open('media', 1);
+const request = indexedDB.open('media', 1);
 
 request.onupgradeneeded = function(e) {
     const db = e.target.result;
@@ -38,3 +38,5 @@ function uploadContent() {
         }
     }
 }
+
+window.addEventListener('online', uploadContent);
