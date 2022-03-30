@@ -50,7 +50,27 @@ const SearchGames = () => {
         }
     };
 
-  
+    const handleSaveGame = async (gameId) => {
+        const gameToSave = searchedGames.find((game) => game.gameId === gameId);
+
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            await saveMovieIds({
+                variables: { ...gameToSave }
+            })
+
+            setSavedGameIds([...savedGameIds, gameToSave.gameId]);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    return ('JSX GOES HERE')
 }
 
 export default SearchGames
