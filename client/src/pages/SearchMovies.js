@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
-import { searchMovies } from '../utils/API';
+import { searchMovies } from '../utils/movie.js';
 import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
 import { SAVE_MOVIE } from '../utils/mutations';
 import { useMutation } from '@apollo/client'
@@ -10,7 +10,6 @@ const SearchMovies = () => {
     const [searchedMovies, setSearchedMovies] = useState([]);
     // create state for holding our search field data
     const [searchInput, setSearchInput] = useState('');
-
     // create state to hold saved MovieId values
     const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
 
