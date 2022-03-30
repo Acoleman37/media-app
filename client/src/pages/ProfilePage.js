@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Grid, Image } from 'semantic-ui-react';
 
 class Carousel extends Component {
+  // Add 1 game/movie/show for each carosel piece
     render() {
         return (
             <Carousel>

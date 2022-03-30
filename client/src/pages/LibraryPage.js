@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 
 const GridCelled = () => (
+  // need to be mapped with api call
   <Grid celled>
     <Grid.Row>
       <Grid.Column width={3}>
