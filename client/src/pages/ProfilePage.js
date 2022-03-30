@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { Grid, Image } from 'semantic-ui-react';
 
-class DemoCarousel extends Component {
+class Carousel extends Component {
     render() {
         return (
             <Carousel>
@@ -25,7 +25,7 @@ class DemoCarousel extends Component {
     }
 };
 
-const GridExampleCelled = () => (
+const GridCelled = () => (
   <Grid celled>
     <Grid.Row>
       <Grid.Column width={3}>
@@ -50,4 +50,4 @@ const GridExampleCelled = () => (
   </Grid>
 )
 
-export default GridExampleCelled
+export default GridCelled

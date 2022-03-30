@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 
-const GridExampleCelled = () => (
+const GridCelled = () => (
   <Grid celled>
     <Grid.Row>
       <Grid.Column width={3}>
@@ -26,4 +26,4 @@ const GridExampleCelled = () => (
   </Grid>
 )
 
-export default GridExampleCelled
+export default GridCelled
