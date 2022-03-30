@@ -26,7 +26,7 @@ export const ADD_USER = gql`
         savedMovies {
           movieId
           title
-          genres
+          genre
           description
           image
         }
@@ -45,7 +45,7 @@ export const SAVE_MOVIE = gql`
       savedMovies  {
         movieId
         title
-        genres
+        genre
         description
         image
       }
@@ -62,11 +62,10 @@ export const REMOVE_MOVIE = gql`
       email
       savedMovies {
         movieId
-        authors
-        description
         title
+        genre
+        description
         image
-        link
       }
     }
   }
