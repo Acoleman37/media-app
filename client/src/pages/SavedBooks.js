@@ -34,5 +34,29 @@ export const SavedMovies = () => {
     getUserData();
   }, [userDataLength]);
 
+  // create function that accepts the movie's mongo _id value as param and deletes the movie from the database
+  const handleRemoveMovie = async (movieId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const response = await REMOVE_MOVIE(movieId, token);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const updatedUser = await response.json();
+      setUserData(updatedUser);
+      // upon success, remove movie's id from localStorage
+      removeMovieId(movieId);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   // return ();
 };
