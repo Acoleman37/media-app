@@ -74,7 +74,7 @@ const SearchGames = () => {
     }
   };
 
-  return "JSX GOES HERE";
+  return ("JSX GOES HERE");
 };
 
 export default SearchGames;
