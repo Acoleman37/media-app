@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Auth from '../utils/auth';
-import { searchMovies } from '../utils/API';
+import { searchMovies } from '../utils/movie.js';
 import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
 import { SAVE_MOVIE } from '../utils/mutations';
 import { useMutation } from '@apollo/client'
