@@ -29,13 +29,6 @@ const typeDefs = gql`
     image: String
   }
 
-  type Movie {
-    title: String!
-    genre: [String]
-    description: String!
-    image: String
-  }
-
   type Auth {
     token: ID!
     user: User

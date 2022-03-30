@@ -12,6 +12,7 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
 // addUser as resolver
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -33,6 +34,7 @@ export const ADD_USER = gql`
     }
   }
 `;
+
 // saveMovie as resolver
 export const SAVE_MOVIE = gql`
   mutation saveMovie($movieId: ID!) {
@@ -50,6 +52,7 @@ export const SAVE_MOVIE = gql`
     }
   }
 `;
+
 // removeMovie as resolver
 export const REMOVE_MOVIE = gql`
   mutation removeMovie($movieId: ID!) {
@@ -68,6 +71,7 @@ export const REMOVE_MOVIE = gql`
     }
   }
 `;
+
 // saveGame as resolver
 export const SAVE_GAME = gql`
   mutation saveGame($gameId: ID!) {
