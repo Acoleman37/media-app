@@ -19,7 +19,38 @@ const SearchGames = () => {
         return () => saveGameIds(savedGameIds);
     });
 
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
+        if(!searchInput) {
+            return false;
+        }
+
+        try {
+            const response = await searchGameAPI(searchInput);
+
+            if (response.ok) {
+                throw new Error('something went wrong!');
+            }
+
+            const { items } = await response.json();
+
+            const gameData = items.map((game) => ({
+                gameTitle: game.name,
+                genre: game.genres[0],
+                achievements: game.playtime,
+                progress: '',
+                image: game.background_image || '',
+            }));
+
+            setSearchedGames(gameData);
+            setSearchInput('');
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+  
 }
 
 export default SearchGames
