@@ -20,16 +20,16 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        games: [
+        savedGames: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Game'
             }
         ],
-        streaming: [
+        savedMovies: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Steaming'
+                ref: 'Movies'
             }
         ]
     },
