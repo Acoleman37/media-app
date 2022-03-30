@@ -63,7 +63,8 @@ const SearchGames = () => {
     }
 
     try {
-      await saveMovieIds({
+
+      await saveGame({
         variables: { ...gameToSave },
       });
 
