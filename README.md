@@ -20,7 +20,7 @@ GitHub: https://github.com/Acoleman37 </br>
     <ul>
         <li>haretakis4@gmail.com</li>
         <li>oakshassa864@gmail.com</li>
-        <li>AlecColeman123@yahoo.com</li>
+        <li>Aleccoleman123@yahoo.com</li>
     </ul>
 </ul>
 
