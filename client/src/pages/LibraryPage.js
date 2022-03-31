@@ -1,7 +1,18 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react';
+import {useQuery} from '@apollo/react-hooks';
+import { GET_ME } from '../utils/queries';
 
-const GridCelled = () => (
+
+
+const GridCelled = () => {
+
+  const {loading, data} = useQuery(GET_ME);
+  const userData  = data?.me || {};
+
+  console.log(userData);
+
+return (
   <Grid celled>
     <Grid.Row>
       <Grid.Column width={3}>
@@ -24,6 +35,7 @@ const GridCelled = () => (
       </Grid.Column>
     </Grid.Row>
   </Grid>
-)
+  )
+}
 
 export default GridCelled
