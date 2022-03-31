@@ -4,11 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.10",
-<<<<<<< HEAD
     "@apollo/react-hooks": "^4.0.0",
-=======
-    "@artsy/fresnel": "^3.4.0",
->>>>>>> 78624984bf1349621834969f27220b5c106c1213
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
