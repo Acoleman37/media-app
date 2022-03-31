@@ -77,7 +77,7 @@ const SearchMovies = () => {
         }
     };
 
-    // return ();
+    return ("JSX GOES HERE");
 };
 
 export default SearchMovies;
