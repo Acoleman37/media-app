@@ -30,6 +30,5 @@ const searchGameAPI = async (query) => {
 
 
 // name, background_image, released,
-searchGameAPI();
 
 module.exports = searchGameAPI;
