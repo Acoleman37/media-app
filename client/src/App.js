@@ -1,55 +1,43 @@
-import React, { Component } from 'react';
-import ReactGA from 'react-ga';
-import $ from 'jquery';
-import './App.css';
-import Homepage from './Pages/HomepageLayout';
+import React from "react";
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import SearchMovies from "./pages/SavedMovies";
+import SearchGames from "./pages/SavedGames";
+import SavedMovies from "./pages/SavedMovies";
+import Navbar from "./components/Navbar";
 
-class App extends Component {
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
 
-  constructor(props){
-    super(props);
-    this.state = {
-      foo: 'bar',
-      resumeData: {}
-    };
-
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname);
-
-  }
-
-  getHomePageLayout(){
-    $.ajax({
-      url:'',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
     });
-  }
-  
-  componentDidMount(){
-    this.getResumeData();
-  }
+  },
 
-  render() {
-    return (
-      <div className="App">
-        <Header data={this.state.resumeData.main}/>
-        <About data={this.state.resumeData.main}/>
-        <Resume data={this.state.resumeData.resume}/>
-        <Portfolio data={this.state.resumeData.portfolio}/>
-        <Contact data={this.state.resumeData.main} repos={this.state.resumeData.portfolio}/>
-        <Footer data={this.state.resumeData.main}/>
-      </div>
-    );
-  }
+  uri: "/graphql",
+});
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <Router>
+        <>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={SearchMovies} />
+            <Route exact path="/" component={SearchGames} />
+            <Route exact path="/saved" component={SavedMovies} />
+            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+          </Switch>
+        </>
+      </Router>
+    </ApolloProvider>
+  );
 }
 
 export default App;
