@@ -4,7 +4,12 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Grid, Image } from 'semantic-ui-react';
 
+<<<<<<< HEAD
 class CarouselSample extends Component {
+=======
+class Carousel extends Component {
+  // Add 1 game/movie/show for each carosel piece
+>>>>>>> 78624984bf1349621834969f27220b5c106c1213
     render() {
         return (
             <Carousel>
