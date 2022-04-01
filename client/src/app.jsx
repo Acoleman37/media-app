@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-
 import "semantic-ui-css/semantic.min.css";
-
 import { Button, Container, Header, Menu, Segment } from "semantic-ui-react";
-
 import "./App.css";
 
 class App extends Component {
