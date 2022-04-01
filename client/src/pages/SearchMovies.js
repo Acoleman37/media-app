@@ -1,4 +1,13 @@
 import { useState, useEffect } from 'react';
+import {
+    Jumbotron,
+    Container,
+    Col,
+    Form,
+    Button,
+    Card,
+    CardColumns,
+  } from "semantic-ui-react";
 import Auth from '../utils/auth';
 import { searchMovies } from '../utils/movie.js';
 import { saveMovieIds, getSavedMovieIds } from '../utils/localStorage';
@@ -77,7 +86,83 @@ const SearchMovies = () => {
         }
     };
 
-    // return ();
-};
+    return (
+        <>
+          <Jumbotron fluid className="text-light bg-dark">
+            <Container>
+              <h1>Search for Movies!</h1>
+              <Form onSubmit={handleFormSubmit}>
+                <Form.Row>
+                  <Col xs={12} md={8}>
+                    <Form.Control
+                      name="searchInput"
+                      value={searchInput}
+                      onChange={(e) => setSearchInput(e.target.value)}
+                      type="text"
+                      size="lg"
+                      placeholder="Search for a movie"
+                    />
+                  </Col>
+                  <Col xs={12} md={4}>
+                    <Button type="submit" variant="success" size="lg">
+                      Submit Search
+                    </Button>
+                  </Col>
+                </Form.Row>
+              </Form>
+            </Container>
+          </Jumbotron>
+    
+          <Container>
+            <h2>
+              {searchedMovies.length
+                ? `Viewing ${searchedMovies.length} results:`
+                : "Search for a book to begin"}
+            </h2>
+            <CardColumns>
+              {searchedMovies.map((movie) => {
+                return (
+                  <Card key={movie.movieId} border="dark">
+                    {movie.image ? (
+                      <Card.Img
+                        src={movie.image}
+                        alt={`The cover for ${movie.title}`}
+                        variant="top"
+                      />
+                    ) : null}
+                    <Card.Body>
+                      <Card.Title>{movie.title}</Card.Title>
+                      <p className="small">Authors: {movie.authors}</p>
+                      <p className="small">
+                        Link:{" "}
+                        <a href={movie.link} target="_blank" rel="noreferrer">
+                          {movie.title}
+                        </a>
+                      </p>
+                      <Card.Text>{movie.description}</Card.Text>
+                      {Auth.loggedIn() && (
+                        <Button
+                          disabled={savedMovieIds?.some(
+                            (savedMovieId) => savedMovieId === movie.movieId
+                          )}
+                          className="btn-block btn-info"
+                          onClick={() => handleSaveMovie(movie.movieId)}
+                        >
+                          {savedMovieIds?.some(
+                            (savedMovieId) => savedMovieId === movie.movieId
+                          )
+                            ? "This movie has already been saved!"
+                            : "Save this movie!"}
+                        </Button>
+                      )}
+                    </Card.Body>
+                  </Card>
+                );
+              })}
+            </CardColumns>
+          </Container>
+        </>
+      );
+    };
 
 export default SearchMovies;

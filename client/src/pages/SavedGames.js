@@ -6,11 +6,11 @@ import {
   Card,
   Button,
 } from "semantic-ui-react";
-import { LOGIN_USER, REMOVE_MOVIE } from '../utils/mutations';
+import { LOGIN_USER, REMOVE_GAME } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { removeMovieId } from '../utils/localStorage';
+import { removeGameId } from '../utils/localStorage';
 
-export const SavedMovies = () => {
+export const SavedGames = () => {
   const [userData, setUserData] = useState({});
 
   // use this to determine if `useEffect()` hook needs to run again
@@ -42,7 +42,7 @@ export const SavedMovies = () => {
   }, [userDataLength]);
 
   // create function that accepts the movie's mongo _id value as param and deletes the movie from the database
-  const handleRemoveMovie = async (movieId) => {
+  const handleRemoveGame = async (gameId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -50,7 +50,7 @@ export const SavedMovies = () => {
     }
 
     try {
-      const response = await REMOVE_MOVIE(movieId, token);
+      const response = await REMOVE_GAME(gameId, token);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -59,7 +59,7 @@ export const SavedMovies = () => {
       const updatedUser = await response.json();
       setUserData(updatedUser);
       // upon success, remove movie's id from localStorage
-      removeMovieId(movieId);
+      removeGameId(gameId);
     } catch (err) {
       console.error(err);
     }
@@ -74,43 +74,43 @@ export const SavedMovies = () => {
     <>
     <Jumbotron fluid className="text-light bg-dark">
       <Container>
-        <h1>Viewing saved Movies!</h1>
+        <h1>Viewing saved Games!</h1>
       </Container>
     </Jumbotron>
     <Container>
       <h2>
-        {userData.savedMovies.length
-          ? `Viewing ${userData.savedMovies.length} saved ${
-              userData.savedMovies.length === 1 ? "movie" : "movie"
+        {userData.savedGames.length
+          ? `Viewing ${userData.savedGames.length} saved ${
+              userData.savedGames.length === 1 ? "game" : "game"
             }:`
-          : "You have no saved movies!"}
+          : "You have no saved games!"}
       </h2>
       <CardColumns>
-        {userData.savedMovies.map((movie) => {
+        {userData.savedGames.map((game) => {
           return (
-            <Card key={movie.movieId} border="dark">
-              {movie.image ? (
+            <Card key={game.gameId} border="dark">
+              {game.image ? (
                 <Card.Img
-                  src={movie.image}
-                  alt={`The cover for ${movie.title}`}
+                  src={game.image}
+                  alt={`The cover for ${game.title}`}
                   variant="top"
                 />
               ) : null}
               <Card.Body>
-                <Card.Title>{movie.title}</Card.Title>
-                <p className="small">Authors: {movie.authors}</p>
+                <Card.Title>{game.title}</Card.Title>
+                <p className="small">Authors: {game.authors}</p>
                 <p className="small">
                   Link:{" "}
-                  <a href={movie.link} target="_blank" rel="noreferrer">
-                    {movie.title}
+                  <a href={game.link} target="_blank" rel="noreferrer">
+                    {game.title}
                   </a>
                 </p>
-                <Card.Text>{movie.description}</Card.Text>
+                <Card.Text>{game.description}</Card.Text>
                 <Button
                   className="btn-block btn-danger"
-                  onClick={() => handleRemoveMovie(movie.movieId)}
+                  onClick={() => handleRemoveGame(game.gameId)}
                 >
-                  Delete this Movie!
+                  Delete this Game!
                 </Button>
               </Card.Body>
             </Card>
@@ -122,4 +122,4 @@ export const SavedMovies = () => {
 );
 };
 
-export default SavedMovies;
+export default SavedGames;

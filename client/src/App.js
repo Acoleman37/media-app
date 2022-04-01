@@ -3,8 +3,9 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import SearchMovies from "./pages/SavedMovies";
-import SearchGames from "./pages/SavedGames";
+import SearchMovies from "./pages/SearchMovies";
+import SearchGames from "./pages/SearchGames";
+import SavedGames from "./pages/SavedGames";
 import SavedMovies from "./pages/SavedMovies";
 import Navbar from "./components/Navbar";
 
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/" component={SearchMovies} />
             <Route exact path="/" component={SearchGames} />
             <Route exact path="/saved" component={SavedMovies} />
+            <Route exact path="/saved" component={SavedGames} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
