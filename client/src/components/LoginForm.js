@@ -50,14 +50,14 @@ const LoginForm = () => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert
+        {/* <Alert
           dismissible
           onClose={() => setShowAlert(false)}
           show={showAlert}
           variant="danger"
         >
           Something went wrong with your login credentials!
-        </Alert>
+        </Alert> */}
         <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control

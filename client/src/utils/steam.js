@@ -1,9 +1,7 @@
-require('dotenv').config();
 var axios = require('axios').default
 
 const searchGameAPI = async (query) => {
 
-  console.log(process.env);
   return fetch(`https://api.rawg.io/api/games?key=44ea66fccf67441c938faa074f82e40c&search=${query}`)
     .then(function (response) {
       console.log(response.data);

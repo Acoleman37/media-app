@@ -6,7 +6,7 @@ import {
   Form,
   Button,
   Card,
-  CardColumns,
+  CardContent,
 } from "semantic-ui-react";
 import Auth from "../utils/auth";
 import { searchGameAPI } from "../utils/steam.js";
@@ -84,7 +84,7 @@ const SearchGames = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      {/* <Jumbotron fluid className="text-light bg-dark">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -107,7 +107,7 @@ const SearchGames = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      </Jumbotron> */}
 
       <Container>
         <h2>
@@ -115,7 +115,7 @@ const SearchGames = () => {
             ? `Viewing ${searchedGames.length} results:`
             : "Search for a book to begin"}
         </h2>
-        <CardColumns>
+         <CardContent>
           {searchedGames.map((game) => {
             return (
               <Card key={game.gameId} border="dark">
@@ -155,7 +155,7 @@ const SearchGames = () => {
               </Card>
             );
           })}
-        </CardColumns>
+        </CardContent> 
       </Container>
     </>
   );

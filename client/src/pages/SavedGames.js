@@ -72,11 +72,11 @@ export const SavedGames = () => {
 
   return (
     <>
-    <Jumbotron fluid className="text-light bg-dark">
+    {/* <Jumbotron fluid className="text-light bg-dark">
       <Container>
         <h1>Viewing saved Games!</h1>
       </Container>
-    </Jumbotron>
+    </Jumbotron> */}
     <Container>
       <h2>
         {userData.savedGames.length
@@ -85,7 +85,7 @@ export const SavedGames = () => {
             }:`
           : "You have no saved games!"}
       </h2>
-      <CardColumns>
+      {/* <CardColumns>
         {userData.savedGames.map((game) => {
           return (
             <Card key={game.gameId} border="dark">
@@ -116,7 +116,7 @@ export const SavedGames = () => {
             </Card>
           );
         })}
-      </CardColumns>
+      </CardColumns> */}
     </Container>
   </>
 );

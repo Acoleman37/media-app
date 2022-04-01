@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import {
-    Jumbotron,
+    Header,
     Container,
     Col,
     Form,
     Button,
     Card,
-    CardColumns,
+    CardContent,
   } from "semantic-ui-react";
 import Auth from '../utils/auth';
 import { searchMovies } from '../utils/movie.js';
@@ -87,13 +87,14 @@ const SearchMovies = () => {
     };
 
     return (
-        <>
-          <Jumbotron fluid className="text-light bg-dark">
+        <div>
+        
+           <Header fluid className="text-light bg-dark">
             <Container>
               <h1>Search for Movies!</h1>
-              <Form onSubmit={handleFormSubmit}>
-                <Form.Row>
-                  <Col xs={12} md={8}>
+               <Form onSubmit={handleFormSubmit}>
+                <Form.Row> 
+                  {/* <Col xs={12} md={8}>
                     <Form.Control
                       name="searchInput"
                       value={searchInput}
@@ -107,19 +108,19 @@ const SearchMovies = () => {
                     <Button type="submit" variant="success" size="lg">
                       Submit Search
                     </Button>
-                  </Col>
-                </Form.Row>
-              </Form>
+                  </Col> */}
+                 </Form.Row>
+              </Form> 
             </Container>
-          </Jumbotron>
+          </Header> 
     
-          <Container>
+           <Container>
             <h2>
               {searchedMovies.length
                 ? `Viewing ${searchedMovies.length} results:`
-                : "Search for a book to begin"}
-            </h2>
-            <CardColumns>
+                : "Search for a Movie to begin"}
+            </h2> 
+            <CardContent>
               {searchedMovies.map((movie) => {
                 return (
                   <Card key={movie.movieId} border="dark">
@@ -159,9 +160,9 @@ const SearchMovies = () => {
                   </Card>
                 );
               })}
-            </CardColumns>
-          </Container>
-        </>
+            </CardContent> 
+          </Container> 
+        </div>
       );
     };
 

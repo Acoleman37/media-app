@@ -72,11 +72,11 @@ export const SavedMovies = () => {
 
   return (
     <>
-    <Jumbotron fluid className="text-light bg-dark">
+    {/* <Jumbotron fluid className="text-light bg-dark">
       <Container>
         <h1>Viewing saved Movies!</h1>
       </Container>
-    </Jumbotron>
+    </Jumbotron> */}
     <Container>
       <h2>
         {userData.savedMovies.length
@@ -85,7 +85,7 @@ export const SavedMovies = () => {
             }:`
           : "You have no saved movies!"}
       </h2>
-      <CardColumns>
+      {/* <CardColumns>
         {userData.savedMovies.map((movie) => {
           return (
             <Card key={movie.movieId} border="dark">
@@ -116,7 +116,7 @@ export const SavedMovies = () => {
             </Card>
           );
         })}
-      </CardColumns>
+      </CardColumns> */}
     </Container>
   </>
 );
