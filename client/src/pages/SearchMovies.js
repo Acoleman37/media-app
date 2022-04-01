@@ -93,7 +93,7 @@ const SearchMovies = () => {
             <Container>
               <h1>Search for Movies!</h1>
                <Form onSubmit={handleFormSubmit}>
-                <Form.Row> 
+                {/* <Form.Row>  */}
                   {/* <Col xs={12} md={8}>
                     <Form.Control
                       name="searchInput"
@@ -109,7 +109,7 @@ const SearchMovies = () => {
                       Submit Search
                     </Button>
                   </Col> */}
-                 </Form.Row>
+                 {/* </Form.Row> */}
               </Form> 
             </Container>
           </Header> 
