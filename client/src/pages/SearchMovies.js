@@ -7,6 +7,7 @@ import {
     Button,
     Card,
     CardColumns,
+    Header,
   } from "semantic-ui-react";
 import Auth from '../utils/auth';
 import { searchMovies } from '../utils/movie.js';
@@ -88,12 +89,12 @@ const SearchMovies = () => {
 
     return (
         <>
-          <Jumbotron fluid className="text-light bg-dark">
+          <Header fluid className="text-light bg-dark">
             <Container>
               <h1>Search for Movies!</h1>
               <Form onSubmit={handleFormSubmit}>
                 <Form.Row>
-                  <Col xs={12} md={8}>
+                  <Grid.Column xs={12} md={8}>
                     <Form.Control
                       name="searchInput"
                       value={searchInput}
@@ -102,16 +103,16 @@ const SearchMovies = () => {
                       size="lg"
                       placeholder="Search for a movie"
                     />
-                  </Col>
-                  <Col xs={12} md={4}>
+                  </Grid.Column>
+                  <Grid.Column xs={12} md={4}>
                     <Button type="submit" variant="success" size="lg">
                       Submit Search
                     </Button>
-                  </Col>
+                  </Grid.Column>
                 </Form.Row>
               </Form>
             </Container>
-          </Jumbotron>
+          </Header>
     
           <Container>
             <h2>
@@ -119,7 +120,7 @@ const SearchMovies = () => {
                 ? `Viewing ${searchedMovies.length} results:`
                 : "Search for a book to begin"}
             </h2>
-            <CardColumns>
+            <Card.Columns>
               {searchedMovies.map((movie) => {
                 return (
                   <Card key={movie.movieId} border="dark">
@@ -130,16 +131,16 @@ const SearchMovies = () => {
                         variant="top"
                       />
                     ) : null}
-                    <Card.Body>
-                      <Card.Title>{movie.title}</Card.Title>
-                      <p className="small">Authors: {movie.authors}</p>
+                    <Card.Content>
+                      <Card.Header>{movie.title}</Card.Header>
+                      <p className="small">Director: {movie.authors}</p>
                       <p className="small">
                         Link:{" "}
                         <a href={movie.link} target="_blank" rel="noreferrer">
                           {movie.title}
                         </a>
                       </p>
-                      <Card.Text>{movie.description}</Card.Text>
+                      <Card.Meta>{movie.description}</Card.Meta>
                       {Auth.loggedIn() && (
                         <Button
                           disabled={savedMovieIds?.some(
@@ -155,11 +156,11 @@ const SearchMovies = () => {
                             : "Save this movie!"}
                         </Button>
                       )}
-                    </Card.Body>
+                    </Card.Content>
                   </Card>
                 );
               })}
-            </CardColumns>
+            </Card.Columns>
           </Container>
         </>
       );

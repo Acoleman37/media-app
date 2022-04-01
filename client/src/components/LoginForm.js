@@ -1,6 +1,6 @@
 // see SignupForm.js for comments
 import React, { useState } from "react";
-import { Form, Button, Alert } from "semantic-ui-react";
+import { Form, Button, Popup } from "semantic-ui-react";
 import { useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
@@ -9,7 +9,7 @@ import { LOGIN_USER } from "../utils/mutations";
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+  const [setShowPopup] = useState(false);
 
   const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -37,7 +37,7 @@ const LoginForm = () => {
 
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      setShowPopup(true);
     }
 
     setUserFormData({
@@ -50,14 +50,14 @@ const LoginForm = () => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert
+        <Popup
           dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
+          onClose={() => setShowPopup(false)}
+          show={Popup}
           variant="danger"
         >
           Something went wrong with your login credentials!
-        </Alert>
+        </Popup>
         <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control

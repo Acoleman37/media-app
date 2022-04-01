@@ -5,6 +5,7 @@ import {
   CardColumns,
   Card,
   Button,
+  Header,
 } from "semantic-ui-react";
 import { LOGIN_USER, REMOVE_MOVIE } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -72,11 +73,11 @@ export const SavedMovies = () => {
 
   return (
     <>
-    <Jumbotron fluid className="text-light bg-dark">
+    <Header fluid className="text-light bg-dark">
       <Container>
         <h1>Viewing saved Movies!</h1>
       </Container>
-    </Jumbotron>
+    </Header>
     <Container>
       <h2>
         {userData.savedMovies.length
@@ -85,7 +86,7 @@ export const SavedMovies = () => {
             }:`
           : "You have no saved movies!"}
       </h2>
-      <CardColumns>
+      <Card.Columns>
         {userData.savedMovies.map((movie) => {
           return (
             <Card key={movie.movieId} border="dark">
@@ -96,8 +97,8 @@ export const SavedMovies = () => {
                   variant="top"
                 />
               ) : null}
-              <Card.Body>
-                <Card.Title>{movie.title}</Card.Title>
+              <Card.Group>
+                <Card.Header>{movie.title}</Card.Header>
                 <p className="small">Authors: {movie.authors}</p>
                 <p className="small">
                   Link:{" "}
@@ -112,11 +113,11 @@ export const SavedMovies = () => {
                 >
                   Delete this Movie!
                 </Button>
-              </Card.Body>
+              </Card.Group>
             </Card>
           );
         })}
-      </CardColumns>
+      </Card.Columns>
     </Container>
   </>
 );

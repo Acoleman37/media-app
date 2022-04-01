@@ -28,10 +28,12 @@
     "@artsy/fresnel": "^3.4.0",
     "apollo-boost": "^0.4.9",
     "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15",
+    "path-browserify": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-responsive-carousel": "^3.2.23",
+    "react-scripts": "^5.0.0",
     "semantic-ui-react": "^2.1.2",
     "yarn": "^1.22.18"
   }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "semantic-ui-react";
+import { Form, Button, Popup } from "semantic-ui-react";
 import { useMutation } from "@apollo/react-hooks";
 
 import Auth from "../utils/auth";
@@ -15,7 +15,7 @@ const SignupForm = () => {
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
-  const [showAlert, setShowAlert] = useState(false);
+  const [setShowPopup] = useState(false);
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -43,7 +43,7 @@ const SignupForm = () => {
 
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      setShowPopup(true);
     }
 
     setUserFormData({
@@ -58,14 +58,14 @@ const SignupForm = () => {
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
-        <Alert
+        <Popup
           dismissible
-          onClose={() => setShowAlert(false)}
-          show={showAlert}
+          onClose={() => setShowPopup(false)}
+          show={Popup}
           variant="danger"
         >
           Something went wrong with your signup!
-        </Alert>
+        </Popup>
 
         <Form.Group>
           <Form.Label htmlFor="username">Username</Form.Label>

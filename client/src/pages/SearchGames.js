@@ -7,6 +7,8 @@ import {
   Button,
   Card,
   CardColumns,
+  Header,
+  Grid,
 } from "semantic-ui-react";
 import Auth from "../utils/auth";
 import { searchGameAPI } from "../utils/steam.js";
@@ -84,12 +86,12 @@ const SearchGames = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <Header fluid className="text-light bg-dark">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={8}>
+              <Grid.Column xs={12} md={8}>
                 <Form.Control
                   name="searchInput"
                   value={searchInput}
@@ -98,16 +100,16 @@ const SearchGames = () => {
                   size="lg"
                   placeholder="Search for a book"
                 />
-              </Col>
-              <Col xs={12} md={4}>
+              </Grid.Column>
+              <Grid.Column xs={12} md={4}>
                 <Button type="submit" variant="success" size="lg">
                   Submit Search
                 </Button>
-              </Col>
+              </Grid.Column>
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      </Header>
 
       <Container>
         <h2>
@@ -115,7 +117,7 @@ const SearchGames = () => {
             ? `Viewing ${searchedGames.length} results:`
             : "Search for a book to begin"}
         </h2>
-        <CardColumns>
+        <Card.Columns>
           {searchedGames.map((game) => {
             return (
               <Card key={game.gameId} border="dark">
@@ -126,16 +128,16 @@ const SearchGames = () => {
                     variant="top"
                   />
                 ) : null}
-                <Card.Body>
-                  <Card.Title>{game.title}</Card.Title>
-                  <p className="small">Authors: {game.authors}</p>
+                <Card.Content>
+                  <Card.Header>{game.title}</Card.Header>
+                  <p className="small">Publishers {game.authors}</p>
                   <p className="small">
                     Link:{" "}
                     <a href={game.link} target="_blank" rel="noreferrer">
                       {game.title}
                     </a>
                   </p>
-                  <Card.Text>{game.description}</Card.Text>
+                  <Card.Meta>{game.description}</Card.Meta>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedGameIds?.some(
@@ -151,11 +153,11 @@ const SearchGames = () => {
                         : "Save this Game!"}
                     </Button>
                   )}
-                </Card.Body>
+                </Card.Content>
               </Card>
             );
           })}
-        </CardColumns>
+        </Card.Columns>
       </Container>
     </>
   );

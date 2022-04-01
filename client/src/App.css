@@ -1,87 +1,49 @@
 body {
+  color: rgb(85, 85, 85);
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: grayscale;
 }
 
-@media only screen and (min-width: 768px) {
-  .ui.container {
-    width: 700px;
-    max-width: 700px;
-  }
-
-  nav.ui.container .ui.header {
-    float: left;
-    margin-top: 12px;
-  }
-
-  nav.ui.container .ui.inverted.compact.menu {
-    float: right;
-  }
+.ui.inverted.pointing.menu .active.item:after {
+  background-color: white !important;
 }
 
-.ui.inverted.vertical.center.aligned.segment {
-  padding-top: 36px;
+/* blockquote styles comes from bootstrap */
+blockquote {
+  padding: 0.6rem 1rem 0.4rem;
+  margin: 0 0 0.8rem;
+  border-left: 5px solid #eeeeee;
 }
-
-nav.ui.container .ui.inverted.compact.menu {
-  background-color: rgb(51, 51, 51);
+blockquote p {
+  line-height: 1.2rem;
+  margin-bottom: 0.3rem;
+  text-align: start !important;
 }
-
-nav.ui.container .ui.inverted.compact.menu .item {
-  padding-bottom: 0;
+blockquote p:last-child {
+  margin-bottom: 0;
 }
-
-nav.ui.container .ui.inverted.compact.menu .item {
-  font-size: 16px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 14px;
-  margin-left: 16px;
-  margin-right: 16px;
-  border-radius: 0;
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
 }
-
-nav.ui.container .ui.inverted.compact.menu .active.item {
-  background-color: inherit;
-  border-bottom-color: white;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
+blockquote footer,
+blockquote small,
+blockquote .small {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857;
+  color: #999;
+  padding: 0;
 }
-
-.ui.inverted.vertical.segment {
-  height: 100vh;
-  background-color: rgb(51, 51, 51);
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+  content: "— ";
 }
-
-.ui.content.container {
-  height: 300px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+blockquote cite:before {
+  content: "«";
 }
-
-.ui.content.container h1.header {
-  font-size: 36px;
-}
-
-.ui.content.container p {
-  font-size: 21px;
-  line-height: 1.6;
-  font-weight: 300;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.ui.inverted.vertical.segment footer.ui.segment {
-  height: 80px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  color: gray;
-}
-
-.ui.inverted.vertical.segment footer.ui.segment a {
-  color: white;
+blockquote cite:after {
+  content: "»";
 }

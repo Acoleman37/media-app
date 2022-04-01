@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import {
-  Jumbotron,
+  Header,
   Container,
   CardColumns,
   Card,
   Button,
+  CardGroup,
 } from "semantic-ui-react";
 import { LOGIN_USER, REMOVE_GAME } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -72,11 +73,11 @@ export const SavedGames = () => {
 
   return (
     <>
-    <Jumbotron fluid className="text-light bg-dark">
+    <Header fluid className="text-light bg-dark">
       <Container>
         <h1>Viewing saved Games!</h1>
       </Container>
-    </Jumbotron>
+    </Header>
     <Container>
       <h2>
         {userData.savedGames.length
@@ -85,7 +86,7 @@ export const SavedGames = () => {
             }:`
           : "You have no saved games!"}
       </h2>
-      <CardColumns>
+      <Card.Groups>
         {userData.savedGames.map((game) => {
           return (
             <Card key={game.gameId} border="dark">
@@ -96,8 +97,8 @@ export const SavedGames = () => {
                   variant="top"
                 />
               ) : null}
-              <Card.Body>
-                <Card.Title>{game.title}</Card.Title>
+              <Card.Content>
+                <Card.Header>{game.title}</Card.Header>
                 <p className="small">Authors: {game.authors}</p>
                 <p className="small">
                   Link:{" "}
@@ -112,11 +113,11 @@ export const SavedGames = () => {
                 >
                   Delete this Game!
                 </Button>
-              </Card.Body>
+              </Card.Content>
             </Card>
           );
         })}
-      </CardColumns>
+      </Card.Groups>
     </Container>
   </>
 );

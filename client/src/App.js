@@ -1,13 +1,8 @@
 import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import SearchMovies from "./pages/SearchMovies";
-import SearchGames from "./pages/SearchGames";
-import SavedGames from "./pages/SavedGames";
-import SavedMovies from "./pages/SavedMovies";
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomepageLayout from "./App.jsx";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -28,14 +23,10 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={SearchMovies} />
-            <Route exact path="/" component={SearchGames} />
-            <Route exact path="/saved" component={SavedMovies} />
-            <Route exact path="/saved" component={SavedGames} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-          </Switch>
+          <Routes>
+              <Route exact path ="/" component={HomepageLayout} />
+              <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+            </Routes>
         </>
       </Router>
     </ApolloProvider>
