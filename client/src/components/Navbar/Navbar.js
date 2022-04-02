@@ -39,7 +39,7 @@ import {
     return (
       <Box>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
+          bg={useColorModeValue('black', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
           minH={'60px'}
           py={{ base: 2 }}
@@ -65,7 +65,7 @@ import {
           <Image
               align={useBreakpointValue({ base: "center", md: "left" })}
               color={useColorModeValue("gray.800", "white")}
-              src="https://www.seekpng.com/png/detail/949-9498559_video-game-controller-clipart-green.png"
+              src="https://www.freepngs.com/camera-png?pgid=j19igyo1-4360b294-5461-11e8-a9ff-063f49e9a7e4"
               boxSize="50px"
             />
   
@@ -126,7 +126,7 @@ import {
                       spacing="1px"
                       ml="2"
                     >
-                      <Text fontSize="sm">Justina Clark</Text>
+                      <Text fontSize="sm">Elden Lord</Text>
                     </VStack>
                     <Box display={{ base: "none", md: "flex" }}>
                       <FiChevronDown />
@@ -156,9 +156,9 @@ import {
   }
   
   const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
+    const linkColor = useColorModeValue('white.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
-    const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+    const popoverContentBgColor = useColorModeValue('black', 'gray.800');
   
     return (
       <Stack direction={'row'} spacing={4}
@@ -312,7 +312,7 @@ import {
   const NAV_ITEMS: Array<NavItem> = [
     {
       label: 'Home',
-      href:'/'
+      href:'/homepage'
     },
     {
       label: 'Profile',

@@ -11,11 +11,11 @@ import {
   } from "@chakra-ui/react";
   
   const IMAGE =
-    "https://cdn.akamai.steamstatic.com/steam/apps/976730/capsule_616x353.jpg?t=1634144453";
+    "https://cdn.akamai.steamstatic.com/steam/apps/397540/header.jpg?t=1646090246";
   
   export default function ProductSimple() {
     return (
-      <Link href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/" >
+      <Link href="https://store.steampowered.com/app/397540/Borderlands_3/" >
       <Flex py={12}>
         <Box
           position={"relative"}
@@ -62,7 +62,7 @@ import {
           </Box>
           <Stack pt={10} align={"center"}>
             <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
-              Ghost of Tsushima
+              Borderlands 3
             </Heading>
           </Stack>
         </Box>

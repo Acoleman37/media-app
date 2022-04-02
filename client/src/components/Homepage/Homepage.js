@@ -33,23 +33,23 @@ import {
               color={'white'}
               fontWeight={700}
               lineHeight={1.2}
-              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-              Someone kill me please.
+              fontSize={useBreakpointValue({ base: '3xl', md: '7xl' })}>
+              All In One Media
             </Text>
-            <Stack direction={'row'}>
+            <Stack direction={['row']}>
               <Button
                 bg={'blue.400'}
                 rounded={'full'}
                 color={'white'}
                 _hover={{ bg: 'blue.500' }}>
-                Bingus
+                Sign Up
               </Button>
               <Button
                 bg={'whiteAlpha.300'}
                 rounded={'full'}
                 color={'white'}
                 _hover={{ bg: 'whiteAlpha.500' }}>
-                Bongus
+                Log In
               </Button>
             </Stack>
           </Stack>

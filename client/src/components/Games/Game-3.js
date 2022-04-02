@@ -11,11 +11,11 @@ import {
   } from "@chakra-ui/react";
   
   const IMAGE =
-    "https://cdn.akamai.steamstatic.com/steam/apps/976730/capsule_616x353.jpg?t=1634144453";
+    "https://cdn.akamai.steamstatic.com/steam/apps/367520/header.jpg?t=1625363925";
   
   export default function ProductSimple() {
     return (
-      <Link href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/" >
+      <Link href="https://store.steampowered.com/app/367520/Hollow_Knight/" >
       <Flex py={12}>
         <Box
           position={"relative"}

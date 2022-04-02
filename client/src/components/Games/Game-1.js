@@ -11,11 +11,11 @@ import {
   } from "@chakra-ui/react";
   
   const IMAGE =
-    "https://cdn.akamai.steamstatic.com/steam/apps/976730/capsule_616x353.jpg?t=1634144453";
+    "https://s3.gaming-cdn.com/images/products/872/616x353/hellblade-senua-s-sacrifice-pc-game-steam-cover.jpg";
   
   export default function ProductSimple() {
     return (
-      <Link href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/" >
+      <Link href="https://store.steampowered.com/app/414340/Hellblade_Senuas_Sacrifice/" >
       <Flex py={12}>
         <Box
           position={"relative"}

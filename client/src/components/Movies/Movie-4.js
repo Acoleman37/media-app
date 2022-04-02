@@ -11,11 +11,11 @@ import {
   } from "@chakra-ui/react";
   
   const IMAGE =
-    "https://cdn.akamai.steamstatic.com/steam/apps/976730/capsule_616x353.jpg?t=1634144453";
+    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/npHNjldbeTHdKKw28bJKs7lzqzj.jpg";
   
   export default function ProductSimple() {
     return (
-      <Link href="https://store.steampowered.com/app/976730/Halo_The_Master_Chief_Collection/" >
+      <Link href="https://www.themoviedb.org/movie/2062-ratatouille?language=en-US" >
       <Flex py={12}>
         <Box
           position={"relative"}

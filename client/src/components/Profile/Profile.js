@@ -43,29 +43,29 @@ function Profile() {
 const [userInfo, setUserInfo] = useState({ name: "John Doe" });
 
   return (
-    <Flex id="profile-container" justifyContent={{ base: "flex-end" }}>
+    <Flex id="profile-container" bg="#f7f7df" justifyContent={{ base: "flex-end" }}>
       <VStack
         w="100%"
         divider={<StackDivider borderColor="gray.200" />}
         spacing={50}
         align="stretch"
       >
-        <HStack w="75%" justify="center" p={3} spacing={{ base: "0", md: "6" }}>
+        <HStack bg="#f7f7df" w="75%" justify="center" p={3} spacing={{ base: "0", md: "6" }}>
                   <Avatar
                     mr={3}
                     size={"lg"}
                     src={
-                      "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                      "https://thumbs.dreamstime.com/z/closeup-super-mario-character-nintendo-platform-game-video-red-background-photographed-site-screen-149088103.jpg"
                     }
                   />
-                  <Flex direction="column" >
-                    <Heading>Justina Doe</Heading>
-                    <Text>About Me</Text>
+                  <Flex direction="column" bg="#f7f7df" >
+                    <Heading>Elden Lord</Heading>
+                    <Text>Trying to marry the Moon Witch</Text>
                   </Flex>
         </HStack>
 
         <HStack p={3}>
-          <Box w="100%" align="center" direction="column" h="400px" bg="white">
+          <Box w="100%" align="center" direction="column" h="400px" bg="black">
             <Heading mb={4} fontSize="4xl">Games</Heading>
             <HStack w="75%" justify="center">
               <Game01 game={{name:"Hellblade:Senua's Sacrifice", id:"001"}}/>
@@ -80,7 +80,7 @@ const [userInfo, setUserInfo] = useState({ name: "John Doe" });
         </HStack>
 
         <HStack p={3}>
-          <Box w="100%" align="center" h="300px" bg="White">
+          <Box w="100%" align="center" h="300px" bg="black">
             <Heading mb={4} fontSize="4xl">Movies</Heading>
             <HStack w="75%" justify="center">
               <Movie01 movie={{name:"There Will Be Blood", id:"001"}}/>
