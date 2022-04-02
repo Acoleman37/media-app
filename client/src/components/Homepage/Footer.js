@@ -33,12 +33,12 @@ import {
             <Image
               align={useBreakpointValue({ base: 'center', md: 'left' })}
               color={useColorModeValue('gray.800', 'white')}
-              src="https://www.seekpng.com/png/detail/949-9498559_video-game-controller-clipart-green.png"
+              src="https://www.seekpng.com/ima/u2q8e6o0e6r5a9i1/"
               boxSize="20px" />
               <Link as={RouterLink} to={'/'}>Home</Link>
               <Link as={RouterLink} to={'/profile'}>Profile</Link>
           </Stack>
-            <Text>© 2020 Video Game SE. All rights reserved</Text>
+            <Text>© 2022 AIM. All rights reserved</Text>
           </Container>
         </Box>
         </div>
