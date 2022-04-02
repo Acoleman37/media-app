@@ -19,7 +19,7 @@ import {
         w={'full'}
         h={'100vh'}
         backgroundImage={
-          'url(https://imageio.forbes.com/specials-images/imageserve/61d6376afb41b047d0299df8/Video-Gamer-Mouse--Keyboard--Headphones-and-Controller/1960x0.jpg?fit=bounds&format=jpg&width=960)'
+          'url(https://c4.wallpaperflare.com/wallpaper/111/893/103/fantasy-library-hd-wallpaper-preview.jpg)'
         }
         backgroundSize={'cover'}
         backgroundPosition={'center center'}>
@@ -43,14 +43,14 @@ import {
                 rounded={'full'}
                 color={'white'}
                 _hover={{ bg: 'blue.500' }}>
-                Show me more
+                Bingus
               </Button>
               <Button
                 bg={'whiteAlpha.300'}
                 rounded={'full'}
                 color={'white'}
                 _hover={{ bg: 'whiteAlpha.500' }}>
-                Show me more
+                Bongus
               </Button>
             </Stack>
           </Stack>
