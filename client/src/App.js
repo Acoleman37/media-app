@@ -1,44 +1,47 @@
 import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Profile from "./components/Profile/Profile";
 import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
-import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
+import  { ApolloClient }  from "@apollo/client";
 
-import SearchMovies from "./pages/SearchMovies";
-import SearchGames from "./pages/SearchGames";
-import SavedGames from "./pages/SavedGames";
-import SavedMovies from "./pages/SavedMovies";
-import Navbar from "./components/Navbar";
+import Homepage from "./components/Homepage/Homepage";
+import Footer from "./components/Homepage/Footer"
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
 
-const client = new ApolloClient({
+const client = new ApolloClient({ 
   request: (operation) => {
-    const token = localStorage.getItem("id_token");
+    const token = localStorage.getItem('id_token');
 
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: token ? `Bearer ${token}`: '',
       },
     });
   },
-
-  uri: "/graphql",
+  uri: '/graphql',
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-          <Routes>
-            <Route exact path="/" element={<SearchMovies />} />
-            <Route exact path="/searchGames" element={SearchGames} />
-            <Route exact path="/saved" element={SavedMovies} />
-            <Route exact path="/saved" element={SavedGames} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
-          </Routes>
-        </>
-      </Router>
+    <ChakraProvider>
+    <BrowserRouter>
+      <div>
+        <Navbar token={false} />
+        <Routes>
+          <Route exact path="/" element={<Homepage/>}/>
+          <Route exact path="/profile" element={<Profile/>}/>
+          <Route exact path="/LoginForm" element={<LoginForm/>}/>
+          <Route exact path="/SignupForm" element={<SignupForm/>}/>
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+    </ChakraProvider>
     </ApolloProvider>
   );
 }
-
 export default App;

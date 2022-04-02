@@ -25,13 +25,6 @@
     "concurrently": "^7.0.0"
   },
   "dependencies": {
-    "@artsy/fresnel": "^3.4.0",
-    "apollo-boost": "^0.4.9",
-    "axios": "^0.26.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-responsive-carousel": "^3.2.23",
-    "semantic-ui-react": "^2.1.2",
-    "yarn": "^1.22.18"
+    "apollo-server-express": "^3.6.7"
   }
 }
