@@ -3,6 +3,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./components/Profile/Profile";
+import Games from "./components/Games/Game-1";
+import Movies from "./components/Movies/Movie-1";
 import {
   ApolloClient,
   InMemoryCache,
@@ -43,8 +45,10 @@ function App() {
       <div>
         <Navbar token={false} />
         <Routes>
-          <Route exact path="/" element={<Homepage/>}/>
+          <Route exact path="/homepage" element={<Homepage/>}/>
           <Route exact path="/profile" element={<Profile/>}/>
+          <Route exact path="/games" element={<Games/>}/>
+          <Route exact path="/movies" element={<Movies/>}/>
           <Route exact path="/LoginForm" element={<LoginForm/>}/>
           <Route exact path="/SignupForm" element={<SignupForm/>}/>
         </Routes>
