@@ -45,7 +45,11 @@ function App() {
       <div>
         <Navbar token={false} />
         <Routes>
+<<<<<<< HEAD
           <Route exact path="/" element={<Homepage/>} />
+=======
+          <Route exact path="/" element={<Homepage/>}/>
+>>>>>>> 19f660c9f62b7c4e78c1afdb493afa11186958d2
           <Route exact path="/homepage" element={<Homepage/>}/>
           <Route exact path="/profile" element={<Profile/>}/>
           <Route exact path="/games" element={<Games/>}/>
