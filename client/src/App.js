@@ -1,55 +1,62 @@
-import React, { Component } from 'react';
-import ReactGA from 'react-ga';
-import $ from 'jquery';
-import './App.css';
-import Homepage from './Pages/HomepageLayout';
+import React from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Navbar from "./components/Navbar/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Profile from "./components/Profile/Profile";
+import Games from "./components/Games/Game-1";
+import Movies from "./components/Movies/Movie-1";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
+import Homepage from "./components/Homepage/Homepage";
+import Footer from "./components/Homepage/Footer"
+import LoginForm from "./components/LoginForm";
+import SignupForm from "./components/SignupForm";
 
-class App extends Component {
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
-  constructor(props){
-    super(props);
-    this.state = {
-      foo: 'bar',
-      resumeData: {}
-    };
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname);
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
-  }
-
-  getHomePageLayout(){
-    $.ajax({
-      url:'',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
-    });
-  }
-  
-  componentDidMount(){
-    this.getResumeData();
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <Header data={this.state.resumeData.main}/>
-        <About data={this.state.resumeData.main}/>
-        <Resume data={this.state.resumeData.resume}/>
-        <Portfolio data={this.state.resumeData.portfolio}/>
-        <Contact data={this.state.resumeData.main} repos={this.state.resumeData.portfolio}/>
-        <Footer data={this.state.resumeData.main}/>
+function App() {
+  return (
+    <ApolloProvider client={client}>
+    <ChakraProvider>
+    <BrowserRouter>
+      <div>
+        <Navbar token={false} />
+        <Routes>
+          <Route exact path="/homepage" element={<Homepage/>}/>
+          <Route exact path="/profile" element={<Profile/>}/>
+          <Route exact path="/games" element={<Games/>}/>
+          <Route exact path="/movies" element={<Movies/>}/>
+          <Route exact path="/LoginForm" element={<LoginForm/>}/>
+          <Route exact path="/SignupForm" element={<SignupForm/>}/>
+        </Routes>
+        <Footer />
       </div>
-    );
-  }
+    </BrowserRouter>
+    </ChakraProvider>
+    </ApolloProvider>
+  );
 }
-
 export default App;
