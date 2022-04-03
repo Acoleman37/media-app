@@ -207,7 +207,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
     <Link
-    as={RouterLink}
+      as={RouterLink}
       to={href}
       role={'group'}
       display={'block'}
@@ -322,7 +322,7 @@ const NAV_ITEMS: Array<NavItem> = [
     label: 'Games',
     href:'/games'
   },
-      {
+  {
     label: 'Movies',
     href:'/movies'
   },
