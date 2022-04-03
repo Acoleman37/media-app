@@ -4,6 +4,9 @@ import {
   Text,
   Image,
   IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
   Button,
   Stack,
   Collapse,
@@ -30,6 +33,7 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  SearchIcon
 } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -62,15 +66,13 @@ export default function WithSubnavigation({token}) {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        <Image
-            align={useBreakpointValue({ base: "center", md: "left" })}
-            color={useColorModeValue("gray.800", "white")}
-            src="https://www.freepngs.com/camera-png?pgid=j19igyo1-4360b294-5461-11e8-a9ff-063f49e9a7e4"
-            boxSize="50px"
-          />
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
+            <InputGroup>
+                <Input placeholder="Search your media" size="md" margin="8px" padding="10px"/>
+                  <InputRightElement children={<SearchIcon/>} color="white" size="md" fontSize="1em" top="7.5px" right="4px" />
+                </InputGroup>
           </Flex>
         </Flex>
 
@@ -85,6 +87,7 @@ export default function WithSubnavigation({token}) {
             as={'a'}
             fontSize={'sm'}
             fontWeight={400}
+            color="white"
             variant={'link'}
             href={'/LoginForm'}>
             Sign In
@@ -93,6 +96,7 @@ export default function WithSubnavigation({token}) {
             as={'a'}
             fontSize={'sm'}
             fontWeight={400}
+            color="white"
             variant={'link'}
             href={'/SignupForm'}>
             Sign Up
@@ -156,8 +160,8 @@ export default function WithSubnavigation({token}) {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('white.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const linkColor = useColorModeValue('white');
+  const linkHoverColor = useColorModeValue('white');
   const popoverContentBgColor = useColorModeValue('black', 'gray.800');
 
   return (
