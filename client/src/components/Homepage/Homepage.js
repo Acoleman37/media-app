@@ -45,7 +45,6 @@ export default function WithBackgroundImage() {
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
-              variant={'link'}
               href={'/SignupForm'}>
               Sign Up
             </Button>
@@ -57,7 +56,6 @@ export default function WithBackgroundImage() {
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
-              variant={'link'}
               href={'/LoginForm'}>
               Log In
             </Button>
