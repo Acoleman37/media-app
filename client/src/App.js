@@ -1,10 +1,7 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profile from "./components/Profile/Profile";
-import Games from "./components/Games/Game-1";
-import Movies from "./components/Movies/Movie-1";
 import {
   ApolloClient,
   InMemoryCache,
@@ -13,6 +10,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+import Profile from "./components/Profile/Profile";
+import Games from "./components/Games/Game-1";
+import Movies from "./components/Movies/Movie-1";
 import Homepage from "./components/Homepage/Homepage";
 import Footer from "./components/Homepage/Footer"
 import LoginForm from "./components/LoginForm";
