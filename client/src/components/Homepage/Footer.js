@@ -14,8 +14,8 @@ import {
           bottom: 0,
           right: 0,
         }} ><Box
-          bg={useColorModeValue('gray.50', 'gray.900')}
-          color={useColorModeValue('gray.700', 'gray.200')}>
+          bg={useColorModeValue('black')}
+          color={useColorModeValue('white')}>
           <Container
             as={Stack}
             maxW={'6xl'}
@@ -23,7 +23,7 @@ import {
             direction={{ base: 'column', md: 'row' }}
             spacing={4}
             justify={{ base: 'center', md: 'right' }}
-            align={{ base: 'center', md: 'center' }}>
+            align={{ base: 'right', md: 'center' }}>
             <Text>© 2022 AIM. All rights reserved</Text>
           </Container>
         </Box>

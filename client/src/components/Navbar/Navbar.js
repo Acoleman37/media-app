@@ -70,11 +70,21 @@ export default function WithSubnavigation({token}) {
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
             <InputGroup>
-                <Input placeholder="Search your media" size="md" margin="8px" padding="10px"/>
-                  <InputRightElement children={<SearchIcon/>} color="white" size="md" fontSize="1em" top="7.5px" right="4px" />
-                </InputGroup>
+              <Input 
+                type="Search your media" 
+                size="md" 
+                margin="8px" 
+                padding="10px"/>
+              <InputRightElement 
+                children={<SearchIcon/>} 
+                color="white" 
+                size="md" 
+                fontSize="1em" 
+                top="7.5px" 
+                right="4px" />
+              </InputGroup>
+            </Flex>
           </Flex>
-        </Flex>
 
         <Stack
           flex={{ base: 1, md: 0 }}
