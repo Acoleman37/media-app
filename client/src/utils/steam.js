@@ -1,6 +1,6 @@
 var axios = require('axios').default
 
-const searchGameAPI = async (query) => {
+export const searchGameAPI = async (query) => {
 
   return fetch(`https://api.rawg.io/api/games?key=44ea66fccf67441c938faa074f82e40c&search=${query}`)
     .then(function (response) {
@@ -28,5 +28,3 @@ const searchGameAPI = async (query) => {
 
 
 // name, background_image, released,
-
-module.exports = searchGameAPI;
