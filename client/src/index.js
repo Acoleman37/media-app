@@ -3,7 +3,7 @@ import {ColorModeScript } from '@chakra-ui/react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { chakra, ChakraProvider } from '@chakra-ui/react';
+import { Chakra, ChakraProvider } from '@chakra-ui/react';
 
 
 ReactDOM.render(
